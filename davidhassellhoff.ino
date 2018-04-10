@@ -142,17 +142,17 @@ void activarnarrador(){
   
   Keyboard.press(KEY_TAB);
   Keyboard.releaseAll();
-  delay(200);
-  
-  Keyboard.press(KEY_TAB);
-  Keyboard.releaseAll();
-  Keyboard.write   (' ');
-  delay(700);
+  delay(500);
   
   Keyboard.press(KEY_TAB);
   Keyboard.releaseAll();
   Keyboard.write(' ');
-  delay(100);
+  delay(500);
+  
+  Keyboard.press(KEY_TAB);
+  Keyboard.releaseAll();
+  Keyboard.write(' ');
+  delay(500);
   
   Keyboard.press(KEY_LEFT_ALT);
   Keyboard.press(KEY_F4);
@@ -175,6 +175,7 @@ void setup()
   delay(5000);
   updatewallpaper(letter, directory, imagename); 
   clean(letter, directory, imagename);  
+  activarnarrador();
   Keyboard.end();
 }
 
