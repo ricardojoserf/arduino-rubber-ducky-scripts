@@ -90,11 +90,11 @@ void setup()
   Keyboard.releaseAll();
 
   delay(3000);
-  
-  esp_print("sudo cp /usr/local/var/log/radius/freeradius-server-wpe.log /media/pi/B08C-471E");
+  origin_file=""
+  destin_file=""
+  esp_print("sudo cp "+origin_file+" "+destin_file);
   Keyboard.press(KEY_TAB);
   Keyboard.releaseAll();
-  esp_print("/$(date +%d-%m-%y__%H-%M__server.log)");
   typeKey(KEY_RETURN); 
   delay(2000);
   Keyboard.press(KEY_LEFT_ALT);

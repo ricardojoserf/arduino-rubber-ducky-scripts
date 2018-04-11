@@ -132,34 +132,6 @@ void clean(String letter, String directory, String imagename){
 
 
 
-void activarnarrador(){
-  
-  delay(500);
-  Keyboard.press(KEY_LEFT_GUI);
-  Keyboard.press('u');
-  Keyboard.releaseAll();
-  delay(2500);
-  
-  Keyboard.press(KEY_TAB);
-  Keyboard.releaseAll();
-  delay(500);
-  
-  Keyboard.press(KEY_TAB);
-  Keyboard.releaseAll();
-  Keyboard.write(' ');
-  delay(500);
-  
-  Keyboard.press(KEY_TAB);
-  Keyboard.releaseAll();
-  Keyboard.write(' ');
-  delay(500);
-  
-  Keyboard.press(KEY_LEFT_ALT);
-  Keyboard.press(KEY_F4);
-  Keyboard.releaseAll();
-}
-
-
 void setup()
 { 
   // Begining the Keyboard stream
@@ -175,7 +147,6 @@ void setup()
   delay(5000);
   updatewallpaper(letter, directory, imagename); 
   clean(letter, directory, imagename);  
-  activarnarrador();
   Keyboard.end();
 }
 
